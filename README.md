@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# RP CRM with React & Supabase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **simple, free-to-use CRM** built with **React** and **Supabase**.  
+This project is designed for managing **leads, clients, invoices, payments, and reminders**, with **authentication** powered by Supabase. It is **completely free** for anyone to use.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **User Authentication**  
+  - Sign up, login, and logout using Supabase Auth
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Leads Management**  
+  - Add, view, edit, and delete leads
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Clients Management**  
+  - Keep track of your clients with details
 
-### `npm test`
+- **Invoices & Payments**  
+  - Create and manage invoices
+  - Track payments
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Reminders**  
+  - Set reminders for follow-ups or tasks
 
-### `npm run build`
+- **Frontend Only**  
+  - Uses Supabase directly from React, no backend required
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Frontend:** React, React Router, Tailwind CSS (or your choice)  
+- **Backend-as-a-Service:** Supabase (PostgreSQL, Auth, Storage)  
+- **Hosting:** Any static hosting platform (Vercel, Netlify, etc.)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to setup?
+- Clone the repo
+- npm install
+- supabase credentials in the credentials file
+- npm run dev or upload on your host
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Author
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Muhammed Shariq Ahmed**  
+- 8 years of experience in software development  
+- Based in Hyderabad, India  
+- Portfolio: [mshariqq.github.io/mshariqq](https://mshariqq.github.io/mshariqq)  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with ❤️ using React & Supabase
