@@ -5,15 +5,15 @@
 ## **1. LEADS MODULE**
 
 ### **1.1 Leads List Page**
-- [ ] Implement Leads List Page `/leads`
-- [ ] Add Header with title and "Add New Lead" button
-- [ ] Build Filter Card with:
-  - [ ] Lead Source dropdown
-  - [ ] Lead Status dropdown
-  - [ ] Assigned To dropdown (dynamic)
-  - [ ] Date Range picker
-  - [ ] Search box
-  - [ ] Apply / Reset buttons
+- [x] Implement Leads List Page `/leads`
+- [x] Add Header with title and "Add New Lead" button
+- [] Build Filter Card with:
+  - [x] Lead Source dropdown
+  - [x] Lead Status dropdown
+  - [x] Assigned To dropdown (dynamic)
+  - [x] Date Range picker
+  - [x] Search box
+  - [x] Apply / Reset buttons
 - [ ] Build Leads DataTable with columns:
   - [ ] Checkbox
   - [ ] Lead Name (clickable)

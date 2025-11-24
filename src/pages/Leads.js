@@ -1,73 +1,74 @@
 import { Helmet } from "react-helmet";
 import { AppContext } from "../AppProvider";
 import { useContext } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FiltersCard } from "../components/Filters/FiltersCard";
+import { Modal } from "../components/Modal";
+import { Dropdown } from "../components/Form/Dropdown";
+import { Input } from "../components/Form/Input";
+import { DateRange } from "../components/Form/DateRange";
 
 export function Leads() {
      const {user, theme, meta, setMeta} = useContext(AppContext);
         useEffect(() => {
             setMeta({...meta, title: 'Leads'});
         }, []);
+
+    
+    const [filters, setFilters] = useState({
+        leadSource : '',
+        leadStatus : '',
+        assignedTo : ''
+    });
+
+    const getDropdownVal = (e) => {
+        const {name, value} = e.target
+        setFilters(prev => ({
+            ...prev, 
+            [name]: value
+        }));
+    }
+
+    const applyFilters = () => {
+        console.log(filters);
+    }
+
     return (
         <div className="p-3">
             <Helmet>
                 <title>Leads | RP CRM</title>
             </Helmet>
 
-            <div className="card border-0">
-                <div className="card-body d-flex justify-content-between p-0">
-                    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Add Lead
-                    </button>
-                    <div className="form-group">
-                        <input className="form-control" placeholder="Search Leads" />
-                    </div>
-                </div>
-            </div>
+            <Modal id='addNewLeadModal' heading="Add New Lead" btnName='Add New'>
+                <h1>working bhai</h1>
+            </Modal>
 
-            
+            <FiltersCard>
+                    <DateRange nameStart='dateFrom' nameEnd='dateTo' />
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Lead</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div className="form-group mb-3">
-                            <label for="">Name</label>
-                            <input type="text" placeholder="Jhon Doe" className="form-control" />
-                        </div>
-                        <div className="form-group mb-3">
-                            <label for="">Email</label>
-                            <input type="email" placeholder="john@example.com" className="form-control" />
-                        </div>
-                        <div className="form-group mb-3">
-                            <label for="">Mobile</label>
-                            <input type="text" placeholder="+91 9874563210" className="form-control" />
-                        </div>
-                        <div className="form-group mb-3">
-                            <label for="">Country</label>
-                            <select className="form-select">
-                                <option>India</option>
-                                <option>USA</option>
-                                <option>Russia</option>
-                                <option>Iran</option>
-                                <option>UAE</option>
-                                <option>China</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
+                    <Dropdown onChange={getDropdownVal} value={filters.leadSource} name="leadSource" id="leadSources" >
+                            <option>Lead Sources</option>
+                            <option value='fb'>Facebook Ads</option>
+                            <option value='ga'>Google Ads</option>
+                            <option value='la'>Linkedin Ads</option>
+                    </Dropdown>
+                    <Dropdown onChange={getDropdownVal} name="leadStatus" id="leadStatus">
+                            <option>Lead Status</option>
+                            <option value='new'>New</option>
+                            <option value='contacted'>Contacted</option>
+                            <option value='qualified'>Qualified</option>
+                    </Dropdown>
+                    <Dropdown onChange={getDropdownVal} name="assignedTo" id="assignedTo">
+                            <option>Assigned To</option>
+                            <option value='jd'>John Doe</option>
+                            <option value='sam'>Sam Doe</option>
+                            <option value='elli'>Elli</option>
+                    </Dropdown>
+                     <Input name="Search" placeholder="Search Leads" />
+                     <button onClick={applyFilters} className="btn btn-secondary">Apply Filters</button>
+            </FiltersCard>
 
-            <table class="table table-striped table-hover">
+            <table className="table table-striped table-hover">
                 <thead className="bg-light">
                     <tr>
                         <th>Id</th>
