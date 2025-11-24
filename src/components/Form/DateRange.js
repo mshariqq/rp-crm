@@ -1,7 +1,6 @@
 
 export function DateRange({ label, id, fromValue, toValue, nameStart, nameEnd, className = "", onChangeFrom, onChangeTo }) {
  
-
   return (
     <div className="form-group">
       {label && <label>{label}</label>}

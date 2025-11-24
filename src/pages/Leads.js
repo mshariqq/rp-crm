@@ -18,7 +18,8 @@ export function Leads() {
     const [filters, setFilters] = useState({
         leadSource : '',
         leadStatus : '',
-        assignedTo : ''
+        assignedTo : '',
+        checkAll : 0
     });
 
     const getDropdownVal = (e) => {
@@ -31,6 +32,16 @@ export function Leads() {
 
     const applyFilters = () => {
         console.log(filters);
+    }
+
+    const checkAll = (e) => {
+        
+        if(e.target.checked){
+            setFilters({...filters, checkAll : 1});
+        }else {
+            setFilters({...filters, checkAll : 0});
+        }
+        
     }
 
     return (
@@ -64,13 +75,16 @@ export function Leads() {
                             <option value='sam'>Sam Doe</option>
                             <option value='elli'>Elli</option>
                     </Dropdown>
-                     <Input name="Search" placeholder="Search Leads" />
+                     <Input name="Search" placeholder="Search Leads" type='text' />
                      <button onClick={applyFilters} className="btn btn-secondary">Apply Filters</button>
             </FiltersCard>
 
             <table className="table table-striped table-hover">
                 <thead className="bg-light">
                     <tr>
+                        <th>
+                            <Input onChange={checkAll} name="check" type='checkbox' />
+                        </th>
                         <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -80,6 +94,7 @@ export function Leads() {
                 </thead>
                 <tbody>
                     <tr>
+                        <td><Input name="check" checked={filters.checkAll} type='checkbox' /></td>
                         <td>SADF87</td>
                         <td>Sharukh Khan</td>
                         <td>Sharukh@bollywood.com</td>
@@ -87,6 +102,7 @@ export function Leads() {
                         <td>India</td>
                     </tr>
                     <tr>
+                        <td><Input name="check" checked={filters.checkAll} type='checkbox' /></td>
                         <td>MMFM87</td>
                         <td>Sallu Bhai</td>
                         <td>sallub@bollywood.com</td>
@@ -94,6 +110,7 @@ export function Leads() {
                         <td>India</td>
                     </tr>
                     <tr>
+                        <td><Input name="check" checked={filters.checkAll} type='checkbox' /></td>
                         <td>OKSHF7</td>
                         <td>Emraan</td>
                         <td>emraan@bollywood.com</td>
