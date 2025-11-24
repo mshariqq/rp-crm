@@ -2,7 +2,16 @@ import { AppContext } from "../../AppProvider";
 import { useContext } from "react";
 
 export function Navbar() {
-    const {meta, user} = useContext(AppContext);
+    const {meta, user, logout} = useContext(AppContext);
+
+    console.log(user);
+    const handleLogout = async (e) => {
+        try {
+            await logout();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
     
     return (
         <>
@@ -17,7 +26,7 @@ export function Navbar() {
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            <i className="bi bi-person-circle"></i> {user.name}
+                            <i className="bi bi-person-circle"></i> {user?.email ?? 'Loading..'}
                         </button>
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li>
@@ -34,9 +43,9 @@ export function Navbar() {
                             <hr className="dropdown-divider" />
                             </li>
                             <li>
-                            <a className="dropdown-item text-danger" href="#">
+                            <button className="dropdown-item text-danger" onClick={handleLogout}>
                                 Logout
-                            </a>
+                            </button>
                             </li>
                         </ul>
                     </div>

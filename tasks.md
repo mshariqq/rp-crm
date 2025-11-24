@@ -20,7 +20,7 @@
   - [x] Email, Mobile
   - [x] Source, Status, Assigned To, Created On
   - [x] Actions (View/Edit/Delete)
-- [ ] Implement Bulk Actions (Assign, Change Status, Delete)
+- [x] Implement Bulk Actions (Assign, Change Status, Delete)
 - [ ] Implement Pagination
 
 ---

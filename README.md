@@ -50,3 +50,5 @@ This project is designed for managing **leads, clients, invoices, payments, and 
 - Portfolio: [mshariqq.github.io/mshariqq](https://mshariqq.github.io/mshariqq)  
 
 Built with ❤️ using React & Supabase
+
+
