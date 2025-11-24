@@ -7,7 +7,7 @@
 ### **1.1 Leads List Page**
 - [x] Implement Leads List Page `/leads`
 - [x] Add Header with title and "Add New Lead" button
-- [] Build Filter Card with:
+- [x] Build Filter Card with:
   - [x] Lead Source dropdown
   - [x] Lead Status dropdown
   - [x] Assigned To dropdown (dynamic)
@@ -15,11 +15,11 @@
   - [x] Search box
   - [x] Apply / Reset buttons
 - [ ] Build Leads DataTable with columns:
-  - [ ] Checkbox
-  - [ ] Lead Name (clickable)
-  - [ ] Email, Mobile
-  - [ ] Source, Status, Assigned To, Created On
-  - [ ] Actions (View/Edit/Delete)
+  - [x] Checkbox
+  - [x] Lead Name (clickable)
+  - [x] Email, Mobile
+  - [x] Source, Status, Assigned To, Created On
+  - [x] Actions (View/Edit/Delete)
 - [ ] Implement Bulk Actions (Assign, Change Status, Delete)
 - [ ] Implement Pagination
 

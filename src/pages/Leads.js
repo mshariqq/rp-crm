@@ -19,7 +19,15 @@ export function Leads() {
         leadSource : '',
         leadStatus : '',
         assignedTo : '',
-        checkAll : 0
+        checkAll : 0,
+        showBar : true
+    });
+
+    const [bulkActions, setBulkActions] = useState({
+        delete : '',
+        export : '',
+        checkAll : 0,
+        showBar : false
     });
 
     const getDropdownVal = (e) => {
@@ -35,13 +43,13 @@ export function Leads() {
     }
 
     const checkAll = (e) => {
-        
         if(e.target.checked){
-            setFilters({...filters, checkAll : 1});
+            setFilters({...filters, checkAll : 1, showBar: false});
+            setBulkActions({...bulkActions, checkAll : 1, showBar: true});
         }else {
-            setFilters({...filters, checkAll : 0});
+            setFilters({...filters, checkAll : 0, showBar : true});
+            setBulkActions({...bulkActions, checkAll : 1, showBar: false});
         }
-        
     }
 
     return (
@@ -50,11 +58,22 @@ export function Leads() {
                 <title>Leads | RP CRM</title>
             </Helmet>
 
-            <Modal id='addNewLeadModal' heading="Add New Lead" btnName='Add New'>
+            <Modal id='addNewLeadModal' heading="Add New Lead" btnName='Add New Lead'>
                 <h1>working bhai</h1>
             </Modal>
 
-            <FiltersCard>
+            <FiltersCard className={bulkActions.showBar === true ? '' : 'd-none'}>
+                    <Dropdown onChange={getDropdownVal} name="leadStatus" id="leadStatus">
+                            <option>Change Status</option>
+                            <option value='new'>New</option>
+                            <option value='contacted'>Contacted</option>
+                            <option value='qualified'>Qualified</option>
+                    </Dropdown>
+                    <button className="btn btn-danger">Delete Items</button>
+            </FiltersCard>
+
+            <FiltersCard className={filters.showBar === true ? '' : 'd-none'}>
+                    <Input name="Search" placeholder="Search Leads" type='text' />
                     <DateRange nameStart='dateFrom' nameEnd='dateTo' />
 
                     <Dropdown onChange={getDropdownVal} value={filters.leadSource} name="leadSource" id="leadSources" >
@@ -75,7 +94,6 @@ export function Leads() {
                             <option value='sam'>Sam Doe</option>
                             <option value='elli'>Elli</option>
                     </Dropdown>
-                     <Input name="Search" placeholder="Search Leads" type='text' />
                      <button onClick={applyFilters} className="btn btn-secondary">Apply Filters</button>
             </FiltersCard>
 
@@ -89,7 +107,9 @@ export function Leads() {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Mobile</th>
-                        <th>Country</th>
+                        <th>Status</th>
+                        <th>Created On</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,7 +119,16 @@ export function Leads() {
                         <td>Sharukh Khan</td>
                         <td>Sharukh@bollywood.com</td>
                         <td>9856321047</td>
-                        <td>India</td>
+                        <td>
+                            New
+                        </td>
+                        <td>
+                            12 Nov 2025
+                        </td>
+                        <td className="d-flex gap-2">
+                            <button className="btn btn-sm btn-secondary">Edit</button>
+                            <button className="btn btn-sm btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td><Input name="check" checked={filters.checkAll} type='checkbox' /></td>
@@ -107,7 +136,16 @@ export function Leads() {
                         <td>Sallu Bhai</td>
                         <td>sallub@bollywood.com</td>
                         <td>9856421047</td>
-                        <td>India</td>
+                         <td>
+                            New
+                        </td>
+                        <td>
+                            12 Nov 2025
+                        </td>
+                        <td className="d-flex gap-2">
+                            <button className="btn btn-sm btn-secondary">Edit</button>
+                            <button className="btn btn-sm btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td><Input name="check" checked={filters.checkAll} type='checkbox' /></td>
@@ -115,7 +153,16 @@ export function Leads() {
                         <td>Emraan</td>
                         <td>emraan@bollywood.com</td>
                         <td>8886321047</td>
-                        <td>India</td>
+                         <td>
+                            New
+                        </td>
+                        <td>
+                            12 Nov 2025
+                        </td>
+                        <td className="d-flex gap-2">
+                            <button className="btn btn-sm btn-secondary">Edit</button>
+                            <button className="btn btn-sm btn-danger">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
