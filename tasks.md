@@ -128,7 +128,7 @@
 ## **6. SETTINGS MODULE**
 
 ### **6.1 System Settings**
-- [ ] Implement System Settings Page
+- [x] Implement System Settings Page
 - [ ] Add Company Information fields
 - [ ] Add Branding options (logo, colors)
 - [ ] Add Currency selection
